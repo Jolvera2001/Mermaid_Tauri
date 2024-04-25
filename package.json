@@ -10,10 +10,17 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@tauri-apps/api": "^1",
+    "ace-builds": "^1.33.1",
+    "framer-motion": "^11.1.7",
     "mermaid": "^10.9.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-ace": "^11.0.1",
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1",
