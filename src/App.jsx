@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
+import CodeMirror from "@uiw/react-codemirror";
+import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
+import { languages } from "@codemirror/language-data";
+import { mermaid } from 'codemirror-lang-mermaid'
 import MermaidComponent from './MermaidComponent'
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
-
 import {
     Box,
     Textarea,
@@ -17,18 +18,25 @@ function App() {
     const [source, setSource] = useState(``)
     const id = "something"
     
+    const onChange = useCallback((val, viewUpdate) => {
+        setSource(val);
+    }, []);
+
     return (
         <>
-        <HStack p={5} spacing={10}>
-            <Box p={5}>
-                <VStack spacing={5}>
-                    <Textarea value={source} onChange={event => setSource(event.target.value)} w='40vh'/>
-                    <SyntaxHighlighter language="mermaid" style={prism}>
-                        {source}
-                    </SyntaxHighlighter>
+        <HStack>
+            <Box>
+                <VStack>
+                    <CodeMirror 
+                        value={source} 
+                        height="80vh" 
+                        width="50vw"
+                        extensions={[mermaid()]}
+                        onChange={onChange} 
+                    />
                 </VStack>
             </Box>
-            <Box w='50vh'>
+            <Box w='50vw' h='80vh' bg='black'>
                 <MermaidComponent source={source} id={id} />
             </Box>
         </HStack>
