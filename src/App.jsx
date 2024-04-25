@@ -4,6 +4,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
 import { mermaid } from 'codemirror-lang-mermaid'
+import { monokai, monokaiInit } from '@uiw/codemirror-theme-monokai';
 import MermaidComponent from './MermaidComponent'
 import {
     Box,
@@ -32,6 +33,7 @@ function App() {
                         height="80vh" 
                         width="50vw"
                         extensions={[mermaid()]}
+                        theme={monokai}
                         onChange={onChange} 
                     />
                 </VStack>
