@@ -25,23 +25,23 @@ function App() {
 
     return (
         <>
-        <HStack>
-            <Box>
-                <VStack>
-                    <CodeMirror 
-                        value={source} 
-                        height="80vh" 
-                        width="50vw"
-                        extensions={[mermaid()]}
-                        theme={monokai}
-                        onChange={onChange} 
-                    />
-                </VStack>
-            </Box>
-            <Box w='50vw' h='80vh' bg='black'>
-                <MermaidComponent source={source} id={id} />
-            </Box>
-        </HStack>
+            <HStack bg='black' h='100vh'>
+                <Box>
+                    <VStack>
+                        <CodeMirror 
+                            value={source} 
+                            height="100vh" 
+                            width="50vw"
+                            extensions={[mermaid()]}
+                            theme={monokai}
+                            onChange={onChange} 
+                        />
+                    </VStack>
+                </Box>
+                <Box w='50vw' h='100vh' bg='black'>
+                    <MermaidComponent source={source} id={id} />
+                </Box>
+            </HStack>
         </>
     );
 }
