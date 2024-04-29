@@ -1,11 +1,43 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import MermaidComponent from '../Components/Main/MermaidComponent';
 import EditorComponent from '../Components/Main/EditorComponent';
+import FileDataComponent from '../Components/Main/FileDataComponent';
+import {
+    Box,
+    HStack
+} from '@chakra-ui/react';
 
 function MainController() {
+    const [folder, setFolder] = useState(
+        {
+            name: 'root',
+            path: '/',
+            type: 'folder',
+            children: [
+                {
+                    name: 'file1',
+                    path: '/file1',
+                },
+                {
+                    name: 'file2',
+                    path: '/file2',
+                },
+                {
+                    name: 'file3',
+                    path: '/file3',
+                
+                }
+            ]
+        }
+    );
+
     return(
         <>
-            <EditorComponent />
+            <Box>
+                <HStack>
+                    <FileDataComponent filesData={folder.children} />
+                    <EditorComponent />
+                </HStack>
+            </Box>
         </>
     )
 }
