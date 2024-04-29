@@ -14,7 +14,7 @@ import {
     Stack
 } from "@chakra-ui/react";
 
-function App() {
+function EditorComponent() {
     // doesn't update the component until you update the actual markdown????
     const [source, setSource] = useState(``)
     const id = "something"
@@ -46,4 +46,4 @@ function App() {
     );
 }
 
-export default App;
+export default EditorComponent;
