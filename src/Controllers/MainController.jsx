@@ -34,7 +34,7 @@ function MainController() {
         <>
             <Box>
                 <HStack>
-                    <FileDataComponent filesData={folder.children} />
+                    <FileDataComponent folder={folder} />
                     <EditorComponent />
                 </HStack>
             </Box>
