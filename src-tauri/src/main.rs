@@ -8,10 +8,10 @@ use tauri::{
     Submenu, 
 };
 
-mod commands;
+mod apis;
 mod menus;
 
-use commands::greet;
+use apis::greet;
 use menus::handle_menu_event;
 
 fn main() {
