@@ -6,22 +6,23 @@ import {
     Text,
     Button,
     Icon,
+    Flex
 } from '@chakra-ui/react';
 
 function FileDataComponent(filesData) {
     const files = filesData.filesData;
     return(
         <>
-            <Box m={4}>
+            <Flex height="100vh" gridGap={2} mx={6} py={6}>
                 <VStack>
                     {files.map((file, index) => (
-                        <HStack key={index}>
+                        <HStack key={index} alignItems='start'>
                             <Icon />
                             <Text>{file.name}</Text>
                         </HStack>
                     ))}
                 </VStack>
-            </Box>
+            </Flex>
         </>
     )
 }
